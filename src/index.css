@@ -42,5 +42,13 @@ code {
 }
 
 #aboutme {
-  padding: 2%;
+  padding: 5%;
+}
+
+#otherprojects {
+  background-color: #fff;
+}
+
+#aboutMePic {
+  border-radius: 50%;
 }

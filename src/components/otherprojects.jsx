@@ -10,22 +10,22 @@ class OtherProjects extends Component {
         if(this.state.tabselect === "engineering"){
             return ( 
                 <React.Fragment>
-                    <div className="jumbotron">
+                    <div id="otherprojects" className="jumbotron">
                         <h1>Other Projects</h1>
                     </div>
                     <Nav justify variant="tabs" defaultActiveKey="/home">
                     <Nav.Item>
-                        <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1">Design</Nav.Link>
+                        <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2">Software</Nav.Link>
+                        <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3">Engineering</Nav.Link>
+                        <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
                     </Nav.Item>
                     </Nav>
-                    <div className="jumbotron">
-                        <h1>Other Projects</h1>
+                    <div >
+                        Engineering
                     </div>
                 </React.Fragment>
              );
@@ -34,19 +34,18 @@ class OtherProjects extends Component {
             else if(this.state.tabselect === "software"){
                 return ( 
                     <React.Fragment>
-                        <div className="jumbotron">
+                        <div id="otherprojects" className="jumbotron">
                         <h1>Other Projects</h1>
-                                Engineering
                         </div>
                         <Nav justify variant="tabs" defaultActiveKey="/home">
                         <Nav.Item>
-                            <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1">Design</Nav.Link>
+                            <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2">Software</Nav.Link>
+                            <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3">Engineering</Nav.Link>
+                            <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
                         </Nav.Item>
                         </Nav>
                         <div>
@@ -59,19 +58,18 @@ class OtherProjects extends Component {
                 else if(this.state.tabselect === "design"){
                     return ( 
                         <React.Fragment>
-                            <div className="jumbotron">
+                            <div id="otherprojects" className="jumbotron">
                                 <h1>Other Projects</h1>
-                                Engineering
                             </div>
                             <Nav justify variant="tabs" defaultActiveKey="/home">
                             <Nav.Item>
-                                <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1">Design</Nav.Link>
+                                <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2">Software</Nav.Link>
+                                <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3">Engineering</Nav.Link>
+                                <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
                             </Nav.Item>
                             </Nav>
                             <div>

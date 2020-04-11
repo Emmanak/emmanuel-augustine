@@ -5,12 +5,12 @@ import Accordion from 'react-bootstrap/Accordion'
 import AccordionCollapse from 'react-bootstrap/AccordionCollapse';
 import Carousel from 'react-bootstrap/Carousel'
 import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
+
 
 class ProjectOverview extends Component {
     state = { moreInfo : false  }
     render() {
-        if(this.state.moreInfo === true){
+        if(false){
             return(
             <React.Fragment>
                 <Card style={{ width: '35rem' }}>
@@ -41,7 +41,7 @@ class ProjectOverview extends Component {
                         <Card.Text>
                                 <b>{this.props.qoute}</b>
                         </Card.Text>
-                        <Button onClick={this.moreInfo}>More Info
+                        <Button variant="secondary" onClick={this.moreInfo}>More Info
                         </Button>
                     </Card.Header>
                 </Card>

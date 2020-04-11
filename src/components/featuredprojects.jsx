@@ -6,12 +6,12 @@ class FeaturedProjects extends Component {
     state = { width: 100 }
     render() { 
         return ( 
-        <div className="container">
+        <div className="container mb-5">
             <div className="jumbotron">
                 <h1>Featured Projects</h1>
                 
                     <div className="row">
-                        <div className="col-md-6 col-sm-12 d-flex justify-content-center">
+                        <div className="col-md-6 col-sm-12 d-flex justify-content-center mb-4">
                                 <ProjectOverview
                                     type="software" 
                                     title="Stat Tracker"
@@ -33,11 +33,11 @@ class FeaturedProjects extends Component {
                                 
                                 ></ProjectOverview>
                             </div>
-                        <div className="col-md-6 col-sm-12 d-flex justify-content-center">
+                        <div className="col-md-6 col-sm-12 d-flex justify-content-center mb-4">
                                 <ProjectOverview 
                                     title="Stat Tracker"
                                     qoute='"...collect real-time stats across multiple users."'
-                                    image="https://picsum.photos/400"
+                                    image="https://picsum.photos/500"
                                     video="https://www.youtube.com/embed/hnCmSXCZEpU"
                                     videoTitle="About my time with Bibles for America"
                                     bodyText="During my time volunteering with bibles for 
