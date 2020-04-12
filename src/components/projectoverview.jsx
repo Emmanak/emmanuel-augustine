@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import Accordion from 'react-bootstrap/Accordion'
-import AccordionCollapse from 'react-bootstrap/AccordionCollapse';
-import Carousel from 'react-bootstrap/Carousel'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 
 class ProjectOverview extends Component {
@@ -34,14 +30,14 @@ class ProjectOverview extends Component {
         } 
         return ( 
             <React.Fragment>
-                <Card style={{ width: '35rem' }}>
+                <Card className="globalFontColor" style={{ width: '35rem' }}>
                     <Card.Img variant="top" src={this.props.image} />
                     <Card.Header>
                         <Card.Title><h2>{this.props.title}</h2></Card.Title>
                         <Card.Text>
-                                <b>{this.props.qoute}</b>
+                                <b>{this.props.quote}</b>
                         </Card.Text>
-                        <Button variant="secondary" onClick={this.moreInfo}>More Info
+                        <Button variant="secondary" href={"/project/"+this.props.type+"/"+this.props.project_id}>More Info
                         </Button>
                     </Card.Header>
                 </Card>

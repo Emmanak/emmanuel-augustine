@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import ProjectOverview from './projectoverview';
+import {engineering, software} from './projectsDB';
+import engineering_img from '../images/engineering/Li-Fi Communication.jpg';
+import software_img from '../images/software/Stat Tracker.jpg';
 
 
 class FeaturedProjects extends Component {
@@ -9,47 +12,31 @@ class FeaturedProjects extends Component {
         <div className="container mb-5">
             <div className="jumbotron">
                 <h1>Featured Projects</h1>
-                
-                    <div className="row">
-                        <div className="col-md-6 col-sm-12 d-flex justify-content-center mb-4">
-                                <ProjectOverview
-                                    type="software" 
-                                    title="Stat Tracker"
-                                    qoute='"...collect real-time stats across multiple users."'
-                                    image="https://picsum.photos/400"
+                    <br></br>
+                    <div className="row mt-2">
+                        <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center mb-4">
+                                <ProjectOverview 
+                                    title={software[0].title}
+                                    quote={'"'+software[0].quote+'"'}
+                                    image={software_img}
                                     video="https://www.youtube.com/embed/hnCmSXCZEpU"
-                                    videoTitle="About my time with Bibles for America"
-                                    bodyText="During my time volunteering with bibles for 
-                                    America (add to resume), I realized there was a need to 
-                                    efficiently collect stats. Bibles for America is a non 
-                                    profit organization that distributes bible and other 
-                                    publications for free. Their only requirement is that the 
-                                    number of material being distributed must be accurately 
-                                    accounted for. I needed “a way to collect real-time stats 
-                                    across multiple users”. I looked for smartphone apps on 
-                                    ios and android that would do this, but none met the 
-                                    requirements. Instead I made my own app."
-                                    date=""
+                                    videoTitle={software[0].video}
+                                    bodyText={software[0].body}
+                                    project_id={software[0].id}
+                                    type={software[0].type}
                                 
                                 ></ProjectOverview>
                             </div>
-                        <div className="col-md-6 col-sm-12 d-flex justify-content-center mb-4">
+                        <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center mb-4">
                                 <ProjectOverview 
-                                    title="Stat Tracker"
-                                    qoute='"...collect real-time stats across multiple users."'
-                                    image="https://picsum.photos/500"
+                                    title={engineering[0].title}
+                                    quote={'"'+engineering[0].quote+'"'}
+                                    image={engineering_img}
                                     video="https://www.youtube.com/embed/hnCmSXCZEpU"
-                                    videoTitle="About my time with Bibles for America"
-                                    bodyText="During my time volunteering with bibles for 
-                                    America (add to resume), I realized there was a need to 
-                                    efficiently collect stats. Bibles for America is a non 
-                                    profit organization that distributes bible and other 
-                                    publications for free. Their only requirement is that the 
-                                    number of material being distributed must be accurately 
-                                    accounted for. I needed “a way to collect real-time stats 
-                                    across multiple users”. I looked for smartphone apps on 
-                                    ios and android that would do this, but none met the 
-                                    requirements. Instead I made my own app."
+                                    videoTitle={engineering[0].videoTitle}
+                                    bodyText={engineering[0].body}
+                                    project_id={engineering[0].id}
+                                    type={engineering[0].type}
                                 
                                 ></ProjectOverview>
                             </div>

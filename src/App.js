@@ -1,28 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import FeaturedProjects from './components/featuredprojects';
+import Home from './components/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import OtherProjects from './components/otherprojects';
-import HeaderVideo from './components/header'
-import AboutMe from './components/aboutme';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import NavigationBar from './components/navbar';
+import ProjectDetails from './components/projectdetails';
 
 function App() {
   return (
     <React.Fragment>
-      <HeaderVideo></HeaderVideo>
-      <AboutMe></AboutMe>
-      <div id="featuredProjects" className="container">
-        <FeaturedProjects>
+      <NavigationBar></NavigationBar>
+      
+      
+      <Router>
+        <Switch>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/project/:type/:id" component={ProjectDetails}></Route>
+        </Switch>
+      </Router>
 
-        </FeaturedProjects>
-      </div>
-
-      <div id="otherProjects" className="container">
-        <OtherProjects>
-
-        </OtherProjects>
-      </div>
     </React.Fragment>
     
   );

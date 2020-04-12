@@ -1,7 +1,7 @@
 body {
   margin: 0;
   
-  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Oxygen',
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,6 +35,10 @@ code {
 
 }
 
+.globalFontColor {
+  color: #3f3f3f;
+}
+
 .video-container {
   position: absolute;
   top: 0;
@@ -45,10 +49,14 @@ code {
   padding: 5%;
 }
 
-#otherprojects {
+#projects {
   background-color: #fff;
 }
 
 #aboutMePic {
   border-radius: 50%;
+}
+
+.jumbotron {
+  color: #3f3f3f;
 }
