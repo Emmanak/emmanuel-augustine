@@ -35,7 +35,7 @@ class OtherProjects extends Component {
                         </div>
                     </div>
 
-                    <div className="container">
+                    <div className="tabSelector container">
                         
                     <Nav justify variant="tabs" defaultActiveKey="/home">
                     <Nav.Item>
@@ -70,7 +70,7 @@ class OtherProjects extends Component {
                         </div>
                     </div>
 
-                        <div className="container">
+                        <div className="tabSelector container">
                         <Nav justify variant="tabs" defaultActiveKey="/home">
                         <Nav.Item>
                             <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>
@@ -102,7 +102,7 @@ class OtherProjects extends Component {
                                 </div>
                             </div>
 
-                            <div className="container">
+                            <div className="tabSelector container">
                             <Nav justify variant="tabs" defaultActiveKey="/home">
                             <Nav.Item>
                                 <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>

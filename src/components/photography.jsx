@@ -48,11 +48,9 @@ class Photography extends Component {
                                 <div className="p-4">
                             <Carousel >
                             {photography.map(pic => <Carousel.Item key={pic}><img className="d-block w-100" 
-                            src={images[pic]} alt="Photography Showreel"></img><Carousel.Caption>
-                                <h3>Photography Showreel</h3>
-                                <p>Taken on Canon T5i</p>
-                            </Carousel.Caption></Carousel.Item>)}
+                            src={images[pic]} alt="Photography Showreel"></img></Carousel.Item>)}
                             </Carousel>
+                            <p className="pictureCaption d-flex justify-content-center">Taken on Canon T5i</p>
                             </div>
                             </div>
                             </div>

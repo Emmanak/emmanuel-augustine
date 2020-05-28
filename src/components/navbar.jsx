@@ -7,7 +7,7 @@ class NavigationBar extends Component {
     render() { 
         return ( 
             <div id="navbar" className="container-fluid">
-            <Navbar bg="light" variant="light fixed-top">
+            <Navbar bg="light" variant="light">
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Nav className="mr-auto">
                 <Nav.Link href="/#aboutme" onSelect={console.log(true)}>About Me</Nav.Link>

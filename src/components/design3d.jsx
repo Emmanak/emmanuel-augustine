@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 var design3dpics = [
-    'BeautyBARF.png',
+    'BeautyBARF.jpg',
     'Domo anmol.jpg',
-    'field grass.png',
+    'field grass.jpg',
     'Floweredited.jpg',
     'Hill Grass  with Domo.jpg',
     'Infone 1.jpg',
@@ -14,11 +14,10 @@ var design3dpics = [
     'Lambo Final Pic.jpg',
     'Physics 1.jpg',
     'Physics 2.jpg',
-    'Roman Vine 1.bmp',
-    'Roman Vine Cam1 shot 2.bmp',
-    'Roman Vine Cam3 shot 1.bmp',
-    'Roman Vine Cam5 shot 2.bmp',
-    'Roman Vine Cam5.bmp',
+    'Roman Vine 1.jpg',
+    'Roman Vine Cam1 shot 2.jpg',
+    'Roman Vine Cam3 shot 1.jpg',
+    'Roman Vine Cam5 shot 2.jpg',
     'RoomwithAO.jpg',
     'Tablet Desktop 2.jpg',
     'Tablet Desktop 3.jpg',
@@ -73,11 +72,9 @@ class Design3D extends Component {
                    <div>
             <Carousel>
                 {design3dpics.map(pic => <Carousel.Item key={pic}><img className="d-block w-100" 
-                src={images[pic]} alt="3DS Max Showreel"></img><Carousel.Caption>
-                        <h3>3DS Max Show Reel</h3>
-                        <p>2010-2012</p>
-                    </Carousel.Caption></Carousel.Item>)}
+                src={images[pic]} alt="3DS Max Showreel"></img></Carousel.Item>)}
                 </Carousel>
+                <p className="pictureCaption d-flex justify-content-center">3DS Max Projects (2010-2012)</p>
                 </div>
                 </div> 
                 </div>

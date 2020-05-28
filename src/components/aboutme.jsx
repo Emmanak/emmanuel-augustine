@@ -40,7 +40,7 @@ class AboutMe extends Component {
                                     introduced me to a broad range of technologies. 
                                     Although I haven't reached my goal, I am currently 
                                     pursuing to become a versatile engineer capable 
-                                    of adapting to any technical challenge</p>
+                                    of adapting to any technical challenge.</p>
 
                             </div>
                         </div>

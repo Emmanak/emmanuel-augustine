@@ -4,7 +4,7 @@ import Home from './components/home';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './components/navbar';
-import ProjectDetails from './components/projectdetails';
+import ProjectSetup from './components/projectdetails';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Router>
         <Switch>
         <Route path="/" exact component={Home}></Route>
-        <Route path="/project/:type/:id" component={ProjectDetails}></Route>
+        <Route path="/project/:type/:id" component={ProjectSetup}></Route>
         </Switch>
       </Router>
 
