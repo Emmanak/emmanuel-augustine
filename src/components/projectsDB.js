@@ -14,12 +14,12 @@ function query_database(allProjects) {
     
 }
 
-async function getProjects(){
+/*async function getProjects(){
     var projects = await query_database(projects);
     return projects
 }
 
-var projects = getProjects();
+var projects = getProjects();*/
 
 var engineering = []
 var software = []
@@ -166,5 +166,5 @@ software[0] = {
 
 
 
-export {engineering, software, getProjects};
+export {engineering, software, query_database};
 

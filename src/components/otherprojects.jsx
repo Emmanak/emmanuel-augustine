@@ -20,9 +20,23 @@ function importAll(r) {
 class OtherProjects extends Component {
     state = { 
         tabselect: "design",
-        projects: []
+        projects: this.props.projects
      }
+
+     componentDidUpdate(){
+         if(this.state.projects !== this.props.projects){
+            console.log(this.props.projects);
+            this.setState({projects: this.props.projects});
+         }
+        
+     }
+
     render() {
+        var engineeringProjects = this.state.projects.filter( project => project.projectType === 'engineering');
+        var softwareProjects = this.state.projects.filter(project => project.projectType === 'software');
+        console.log(engineeringProjects, softwareProjects);
+
+        
 
         if(this.state.tabselect === "engineering"){
             return ( 
@@ -45,13 +59,13 @@ class OtherProjects extends Component {
                         <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
+            <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering <span className="badge badge-primary">{engineeringProjects.length}</span></h5></Nav.Link>
                     </Nav.Item>
                     </Nav>
 
                     <div id="engineering" className="mt-5 mb-5">
-                        {engineering.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><ProjectOverview key={project.key} title={project.title} quote={project.quote} 
-                        bodyText={project.body} type={project.type} project_id={project.id} image={engineering_imgs[project.title+".jpg"]}></ProjectOverview></div></div>)}
+                        {engineeringProjects.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><ProjectOverview key={project.id} title={project.projectName} quote={project.quote} 
+                        bodyText={project.description1} type={project.projectType} project_id={"project-"+project.id} image={project.imageLink1}></ProjectOverview></div></div>)}
                     </div>
                     </div>
                     
@@ -83,8 +97,8 @@ class OtherProjects extends Component {
                         </Nav.Item>
                         </Nav>
                         <div id="software" className="mt-5 mb-5">
-                        {software.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><ProjectOverview key={project.key} title={project.title} quote={project.quote} 
-                        bodyText={project.body} type={project.type} project_id={project.id} image={software_imgs[project.title+".jpg"]}></ProjectOverview></div></div>)}
+                        {softwareProjects.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><ProjectOverview key={project.id} title={project.projectName} quote={project.quote} 
+                        bodyText={project.description1} type={project.projectType} project_id={"project-"+project.id} image={project.imageLink1}></ProjectOverview></div></div>)}
                         </div>
                         </div>
                     </React.Fragment>
