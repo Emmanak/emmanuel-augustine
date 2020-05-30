@@ -15,72 +15,58 @@ class ProjectContents extends Component {
     render() { 
         var images;
         let data = this.props.data;
-        if(data.type === "engineering"){
-            images = importAll(require.context('../images/engineering', false, /\.(png|jpe?g|svg|bmp)$/));
-
-        }
-        else if(data.type === "software"){
-            images = importAll(require.context('../images/software', false, /\.(png|jpe?g|svg|bmp)$/));
-        }
-
-        if(this.props.order === "body"){
+        let order = this.props.order;
+        if(order.startsWith('description')){
             return ( 
                 <div className="col-lg-8 col-md-8 col-sm-12 d-flex mx-auto mb-2">
-                                <p>{data.body}</p>
+                                <p>{data[order]}</p>
                             </div>
              );
         }
-        else if(this.props.order === "video"){
+        else if(order.startsWith('projectName')){
+            return(
+                    <div className="headerSection2 col-lg-12 col-md-12 col-sm-12">
+                        <div className="d-flex justify-content-center">
+                            <h1 key={'projectName-'+data.id} className="p-3">{data[order]}</h1>
+                        </div>
+                        </div>
+            );
+        }
+        else if(order.startsWith('videoLink')){
             return (
                 <div id="youtubeVideo" className="col-lg-8 col-md-8 col-sm-12 d-flex mx-auto">
                     <ReactPlayer playsinline width="100%" height="100%" controls={true}
-                        url={data.video}
+                        url={data[order]}
                     />
                     </div>
             );
         }
-        else if(this.props.order === "image2"){
+        else if(order.startsWith('imageLink')){
             return (
                 <div className="col-lg-8 col-md-8 col-sm-12 d-flex mx-auto mb-5">
                             <Card className="globalFontColor" style={{ width: '50rem' }}>
-                            <Card.Img variant="top" src={images[data.image2]}/>
+                            <Card.Img variant="top" src={data[order]}/>
                             </Card>
                 </div>
             );
         }
-        else if(this.props.order === "appTest"){
+        else if(order.startsWith('link')){
             return (
                 <div id={data.appID} className="d-flex col-12 mx-auto">
-                            <iframe width="100%" height={data.appHeight} frameBorder="0" scrolling="no" onLoad={console.log(this)} title={data.title} src={data.appTest}></iframe>
+                            <iframe width="100%" height="100%" frameBorder="0" scrolling="no" onLoad={console.log(this)} title={data.projectName} src={data[order]}></iframe>
                 </div>
             );
         }
-        else if(this.props.order === "title2"){
+        else if(order.startsWith('subtitle')){
             return (
                 <div className="titleSection col-lg-8 col-md-8 col-sm-12 d-flex mx-auto mt-5 mb-2">
-                            <h3>{data.title2}</h3>
+                            <h3>{data[order]}</h3>
                 </div>
             );
         }
-        else if(this.props.order === "body2"){
-            return (
-                <div className="col-lg-8 col-md-8 col-sm-12 d-flex mx-auto mb-2">
-                                <p>{data.body2}</p>
-                </div>
-            );
-        }
-        else if(this.props.order === "videoTitle"){
-            return (
-                <div className="titleSection col-lg-8 col-md-8 col-sm-12 d-flex mx-auto mt-5 mb-2">
-                            <h3>{data.videoTitle}</h3>
-                </div>
-            );
-        }
-        else if(this.props.order === "link"){
-            return (
-                <div className="col-lg-8 col-md-8 col-sm-12 d-flex mx-auto mt-5 mb-2">
-                            <a href={data.link}>{data.linkText}</a>
-                </div>
+        else{
+            return(
+                <div></div>
             );
         }
         

@@ -4,19 +4,9 @@ import ProjectContents from './projectcontents';
 import {db} from '../fbconfig.js';
 import React, { Component } from 'react';
 
-//var engineering = []
-//var software = []
-
-function importAll(r) {
-    let images = {};
-    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  }
-
 
 
   
-  var images;
 
   class ProjectSetup extends Component {
     constructor(props) {
@@ -27,11 +17,19 @@ function importAll(r) {
       }
        componentDidMount(){
            var that = this;
+           //query the individual project with it's ID
            var id = this.props.match.params.id.replace('project-', '');
         db.collection("fl_content").doc(id)
         .get().then(function(doc){
             if (doc.exists) {
-                that.setState({project: doc.data()});
+                
+                var project = doc.data();
+                var contentOrder = (doc.data().contentOrder.split(', '));
+
+                doc.data().contentOrder = contentOrder;
+                project.contentOrder = contentOrder;
+                that.setState({project:project});
+                
             } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
@@ -41,173 +39,35 @@ function importAll(r) {
        }
       render() {
           var project = this.state.project;
+          console.log(project.contentOrder);
+          if(project.length === 0){
+              return(
+                  <h1>Loading</h1>
+              )
+          }
         return ( 
             <React.Fragment>
-                <div className="container">
-                    <div className="headerSection2 col-lg-12 col-md-12 col-sm-12">
-                        <div className="d-flex justify-content-center">
-                            <h1 key={project.id} className="p-3">{project.projectName}</h1>
-                        </div>
-                        </div>
-                    </div>
                 
                 <div className="container">
                     <div className="col-lg-12 col-md-12 col-sm-12">
-                        <div className="d-flex justify-content-center">
-                            <Card className="globalFontColor" style={{ width: '50rem' }}>
-                            <Card.Img variant="top" src={project.imageLink1}/>
-                            </Card>
+                        <div>
+                            {project.contentOrder.map((order,index) => <ProjectContents key={"content-item-"+index}
+                             order={order} data={project}></ProjectContents>)}
                         </div>
                     </div>
                 </div>
             </React.Fragment>   
                 
          );
+         
       }
   }
    
   export default ProjectSetup;
 
-const ProjectDetails = (props) => {
-    console.log(props);
-    //var type;
-    var id = props.match.params.id;
-    //query_database();
-    var data;
-    if(props.match.params.type === "engineering"){
-        //type = "engineering";
-        data = engineering[id];
-        images = importAll(require.context('../images/engineering', false, /\.(png|jpe?g|svg|bmp)$/));
-        console.log(data.id,images);
-        //var query = query_database();
-        return ( 
-            <React.Fragment>
-                <div className="container">
-                    <div className="headerSection2 col-lg-12 col-md-12 col-sm-12">
-                        <div className="d-flex justify-content-center">
-                            <h1 key={Math.floor((Math.random() * 100) + 1)} className="p-3">{data.title}</h1>
-                        </div>
-                        </div>
-                    </div>
-                
-                <div className="container">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                        <div className="d-flex justify-content-center">
+  /*<div className="d-flex justify-content-center">
                             <Card className="globalFontColor" style={{ width: '50rem' }}>
-                            <Card.Img variant="top" src={images[data.title+".jpg"]}/>
+                            <Card.Img variant="top" src={project.imageLink1}/>
                             </Card>
                         </div>
-                        <div className="mt-5">
-                            {data.order.map((order) => <ProjectContents key={Math.floor((Math.random() * 100) + 1).toString()}
-                             order={order} data={data}></ProjectContents>)}
-                        </div>
-                    </div>
-                </div>
-            </React.Fragment>   
-                
-         );
-    }
-    else if(props.match.params.type === "software"){
-        //type = "software";
-        data= software[id];
-        images = importAll(require.context('../images/software', false, /\.(png|jpe?g|svg|bmp)$/));
-        return ( 
-            <React.Fragment>
-                <div className="container">
-                    <div className="headerSection col-lg-12 col-md-12 col-sm-12">
-                        <div className="d-flex justify-content-center">
-                            <h1 className="p-3">{data.title}</h1>
-                        </div>
-                        </div>
-                    </div>
-                
-                <div className="container">
-                    <div className="col-lg-12 col-md-12 col-sm-12">
-                        <div className="d-flex justify-content-center">
-                            <Card className="globalFontColor" style={{ width: '50rem' }}>
-                            <Card.Img variant="top" src={images[data.title+".jpg"]}/>
-                            </Card>
-                        </div>
-
-                        <div className="mt-5 mb-5">
-                            {data.order.map((order) => <ProjectContents key={Math.floor((Math.random() * 100) + 1).toString()}
-                            order={order} data={data}></ProjectContents>)}
-                        </div>
-                    </div>
-                </div>
-            </React.Fragment>
-         );
-    }
-    
-}
-
-/*
-console.log(this.props);
-        //var type;
-        var id = this.props.match.params.id;
-        //query_database();
-        var data;
-        if(this.props.match.params.type === "engineering"){
-            //type = "engineering";
-            data = engineering[id];
-            images = importAll(require.context('../images/engineering', false, /\.(png|jpe?g|svg|bmp)$/));
-            console.log(data.id,images);
-            //var query = query_database();
-            return ( 
-                <React.Fragment>
-                    <div className="container">
-                        <div className="headerSection2 col-lg-12 col-md-12 col-sm-12">
-                            <div className="d-flex justify-content-center">
-                                <h1 key={Math.floor((Math.random() * 100) + 1)} className="p-3">{data.title}</h1>
-                            </div>
-                            </div>
-                        </div>
-                    
-                    <div className="container">
-                        <div className="col-lg-12 col-md-12 col-sm-12">
-                            <div className="d-flex justify-content-center">
-                                <Card className="globalFontColor" style={{ width: '50rem' }}>
-                                <Card.Img variant="top" src={images[data.title+".jpg"]}/>
-                                </Card>
-                            </div>
-                            <div className="mt-5">
-                                {data.order.map((order) => <ProjectContents key={Math.floor((Math.random() * 100) + 1).toString()}
-                                 order={order} data={data}></ProjectContents>)}
-                            </div>
-                        </div>
-                    </div>
-                </React.Fragment>   
-                    
-             );
-        }
-        else if(this.props.match.params.type === "software"){
-            //type = "software";
-            data= software[id];
-            images = importAll(require.context('../images/software', false, /\.(png|jpe?g|svg|bmp)$/));
-            return ( 
-                <React.Fragment>
-                    <div className="container">
-                        <div className="headerSection col-lg-12 col-md-12 col-sm-12">
-                            <div className="d-flex justify-content-center">
-                                <h1 className="p-3">{data.title}</h1>
-                            </div>
-                            </div>
-                        </div>
-                    
-                    <div className="container">
-                        <div className="col-lg-12 col-md-12 col-sm-12">
-                            <div className="d-flex justify-content-center">
-                                <Card className="globalFontColor" style={{ width: '50rem' }}>
-                                <Card.Img variant="top" src={images[data.title+".jpg"]}/>
-                                </Card>
-                            </div>
-    
-                            <div className="mt-5 mb-5">
-                                {data.order.map((order) => <ProjectContents key={Math.floor((Math.random() * 100) + 1).toString()}
-                                order={order} data={data}></ProjectContents>)}
-                            </div>
-                        </div>
-                    </div>
-                </React.Fragment>
-             );
         }*/

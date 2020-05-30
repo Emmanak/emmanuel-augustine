@@ -37,7 +37,7 @@ class Home extends Component {
                 <HeaderVideo></HeaderVideo>
                 <AboutMe></AboutMe>
                 <div id="featuredProjects" className="container">
-                <FeaturedProjects>
+                <FeaturedProjects projects={this.state.projects}>
 
                 </FeaturedProjects>
                 </div>
