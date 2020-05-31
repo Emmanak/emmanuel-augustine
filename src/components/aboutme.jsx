@@ -7,7 +7,7 @@ class AboutMe extends Component {
         return ( 
             <React.Fragment>
             <div id="aboutme" className="container globalFontColor">
-                <div className="row">
+                <div className="container-fluid">
                     <div className="row">
                     <h1>
                     About Me
@@ -22,7 +22,7 @@ class AboutMe extends Component {
 
                     
 
-                            <div className="row">
+                            <div className="container-fluid">
 
 
 
@@ -43,7 +43,7 @@ class AboutMe extends Component {
                         
                     </div>
 
-                    <div className="col-md-6 col-sm-12 d-flex flex-row-reverse my-auto">
+                    <div className="col-md-6 col-sm-12 d-flex justify-content-center my-auto">
                            <img className="mb-5 mt-3" id="aboutMePic"src={aboutmepic} height="250" width="250" alt=""></img>
                     </div>
                     
