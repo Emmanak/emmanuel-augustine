@@ -23,7 +23,15 @@ function importAll(r) {
 
 class Photography extends Component {
     state = {  }
-    render() { 
+    render() {
+        var image_height
+        if(window.innerHeight > window.innerWidth){
+            image_height = window.innerHeight/4;
+            
+        } 
+        else{
+            image_height = window.innerHeight/2;
+        } 
         return ( 
             <React.Fragment>
                 
@@ -46,8 +54,8 @@ class Photography extends Component {
 
                             <div className="container-fluid globalFontColor">
                                 <div className="p-4">
-                            <Carousel >
-                            {photography.map(pic => <Carousel.Item key={pic}><img className="d-block w-100" 
+                            <Carousel className="photos jumbotron">
+                            {photography.map(pic => <Carousel.Item key={pic}><img height={image_height} className="photos-image" 
                             src={images[pic]} alt="Photography Showreel"></img></Carousel.Item>)}
                             </Carousel>
                             <p className="pictureCaption d-flex justify-content-center">Taken on Canon T5i</p>

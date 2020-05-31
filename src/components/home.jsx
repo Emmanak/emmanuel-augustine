@@ -18,20 +18,12 @@ class Home extends Component {
        componentDidMount(){
         var that = this;
         db.collection("fl_content").get().then(function(projects){
-            console.log(projects.docs.map(doc => doc.data()));
             that.setState({projects: projects.docs.map(doc => doc.data())});
-            console.log(that.state.projects);
         }).catch(error => console.log(error));
 
        }
 
-       componentDidUpdate(){
-        console.log(this.state.projects);
-        
-       }
-
-    render() { 
-        console.log(this.state.projects);
+    render() {
         return ( 
             <React.Fragment>
                 <HeaderVideo></HeaderVideo>

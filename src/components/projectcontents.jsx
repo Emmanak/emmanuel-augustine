@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
-import ReactPlayer from "react-player"
+import ReactPlayer from "react-player";
+import Accordion from 'react-bootstrap/Accordion';
 
 
 
-function importAll(r) {
-    let images = {};
-    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  }
+
 
 class ProjectContents extends Component {
     state = {  }
     render() { 
-        var images;
         let data = this.props.data;
         let order = this.props.order;
         if(order.startsWith('description')){
@@ -50,11 +46,22 @@ class ProjectContents extends Component {
                 </div>
             );
         }
-        else if(order.startsWith('link')){
+        else if(order.startsWith('appLink')){
             return (
-                <div id={data.appID} className="d-flex col-12 mx-auto">
-                            <iframe width="100%" height="100%" frameBorder="0" scrolling="no" onLoad={console.log(this)} title={data.projectName} src={data[order]}></iframe>
+                <div className="container col-lg-8 col-md-8 col-sm-12 mb-5">
+                <Accordion>
+                    <Accordion.Toggle as={Card.Header} eventKey="0">
+                    <button className="btn btn-primary btn-block">CLICK HERE TO TRY!</button>
+
+                    </Accordion.Toggle>
+                    <Accordion.Collapse eventKey="0">
+                    <div id={"app-"+data.id}>
+                            <iframe width="100%" height={data.appHeight} frameBorder="0" scrolling="no" title={data.projectName} src={data[order]}></iframe>
+                    </div>
+                    </Accordion.Collapse>
+                </Accordion>
                 </div>
+                
             );
         }
         else if(order.startsWith('subtitle')){

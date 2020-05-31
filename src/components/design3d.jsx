@@ -43,7 +43,16 @@ function importAll(r) {
 
 class Design3D extends Component {
     state = {  }
-    render() { 
+    render() {
+        var image_height
+        if(window.innerHeight > window.innerWidth){
+            image_height = window.innerHeight/4;
+            
+        } 
+        else{
+            image_height = window.innerHeight/2;
+            
+        }
         return (
             <React.Fragment>
                 <div className="contaner ml-3 mr-3 globalFontColor">
@@ -70,8 +79,8 @@ class Design3D extends Component {
 
                <div className="p-4">
                    <div>
-            <Carousel>
-                {design3dpics.map(pic => <Carousel.Item key={pic}><img className="d-block w-100" 
+            <Carousel className="photos jumbotron">
+                {design3dpics.map(pic => <Carousel.Item className="photos-item mt-2 mb-2" key={pic}><img height={image_height} className="photos-image" 
                 src={images[pic]} alt="3DS Max Showreel"></img></Carousel.Item>)}
                 </Carousel>
                 <p className="pictureCaption d-flex justify-content-center">3DS Max Projects (2010-2012)</p>

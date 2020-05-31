@@ -30,7 +30,7 @@ class ProjectOverview extends Component {
         } 
         return ( 
             <React.Fragment>
-                <Card className="globalFontColor" style={{ width: '35rem' }}>
+                <Card className="globalFontColor" style={{ width: '55rem' }}>
                     <Card.Img variant="top" src={this.props.image} />
                     <Card.Header>
                         <Card.Title><h2>{this.props.title}</h2></Card.Title>

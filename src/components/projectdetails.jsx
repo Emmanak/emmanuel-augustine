@@ -1,8 +1,7 @@
-import {engineering, software} from './projectsDB';
-import Card from 'react-bootstrap/Card';
 import ProjectContents from './projectcontents';
 import {db} from '../fbconfig.js';
 import React, { Component } from 'react';
+import Loading from './loading';
 
 
 
@@ -39,10 +38,14 @@ import React, { Component } from 'react';
        }
       render() {
           var project = this.state.project;
-          console.log(project.contentOrder);
           if(project.length === 0){
               return(
-                  <h1>Loading</h1>
+                  <div className="center-screen">
+                  <div className="wrap">
+                      <Loading/>
+                  </div>
+                  </div>
+                  
               )
           }
         return ( 
@@ -64,10 +67,3 @@ import React, { Component } from 'react';
   }
    
   export default ProjectSetup;
-
-  /*<div className="d-flex justify-content-center">
-                            <Card className="globalFontColor" style={{ width: '50rem' }}>
-                            <Card.Img variant="top" src={project.imageLink1}/>
-                            </Card>
-                        </div>
-        }*/

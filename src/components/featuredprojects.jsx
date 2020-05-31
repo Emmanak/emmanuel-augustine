@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ProjectOverview from './projectoverview';
-import {engineering, software} from './projectsDB';
-import engineering_img from '../images/engineering/Li-Fi Communication.jpg';
-import software_img from '../images/software/Stat Tracker.jpg';
+import Loading from './loading';
+
 
 
 class FeaturedProjects extends Component {
@@ -21,18 +20,17 @@ class FeaturedProjects extends Component {
                 var engineering = this.props.projects.filter(project => project.projectType === 'engineering');
 
                 engineering = engineering.sort(function(a,b){
-                    // Turn your strings into dates, and then subtract them
-                    // to get a value that is either negative, positive, or zero.
+                // Turn your strings into dates, and then subtract them
+                // to get a value that is either negative, positive, or zero.
                     return new Date(b.date) - new Date(a.date);
-                  });
+                });
+                
                 software = software.sort(function(a,b){
                     return new Date(b.date) - new Date(a.date);
-                  });
+                });
 
-                  featuredProjects.push(software[0], engineering[0]);
-                  
-                console.log(featuredProjects);
-                 this.setState({projects: featuredProjects});
+                featuredProjects.push(software[0], engineering[0]);
+                this.setState({projects: featuredProjects});
 
             }
          }
@@ -41,9 +39,7 @@ class FeaturedProjects extends Component {
         var featuredProjects = this.state.projects;
         if(featuredProjects.length === 0){
             return(
-                <div>
-                    <h1>loading</h1>
-                </div>
+                <Loading></Loading>
             );
         }
         else{

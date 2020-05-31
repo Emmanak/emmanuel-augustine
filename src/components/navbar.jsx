@@ -6,11 +6,11 @@ class NavigationBar extends Component {
     state = {  }
     render() { 
         return ( 
-            <div id="navbar" className="container-fluid">
+            <div id="navbar" className="container">
             <Navbar bg="light" variant="light">
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Nav className="mr-auto">
-                <Nav.Link href="/#aboutme" onSelect={console.log(true)}>About Me</Nav.Link>
+                <Nav.Link href="/#aboutme">About Me</Nav.Link>
                 <Nav.Link href="/#projects">Projects</Nav.Link>
                 <Nav.Link href="https://github.com/Emmanak">GitHub</Nav.Link>
                 </Nav>

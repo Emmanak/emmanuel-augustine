@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { db } from '../fbconfig';
-import {engineering, software} from './projectsDB';
 import ProjectOverview from './projectoverview';
 import Design3d from './design3d';
 import Photography from './photography';
-
-function importAll(r) {
-    let images = {};
-    r.keys().forEach((item) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  }
-  
-  const engineering_imgs = importAll(require.context('../images/engineering', false, /\.(png|jpe?g|svg|bmp)$/));
-  const software_imgs = importAll(require.context('../images/software', false, /\.(png|jpe?g|svg|bmp)$/));
 
 
 
@@ -25,7 +15,6 @@ class OtherProjects extends Component {
 
      componentDidUpdate(){
          if(this.state.projects !== this.props.projects){
-            console.log(this.props.projects);
             this.setState({projects: this.props.projects});
          }
         
@@ -34,7 +23,6 @@ class OtherProjects extends Component {
     render() {
         var engineeringProjects = this.state.projects.filter( project => project.projectType === 'engineering');
         var softwareProjects = this.state.projects.filter(project => project.projectType === 'software');
-        console.log(engineeringProjects, softwareProjects);
 
         
 
@@ -42,11 +30,10 @@ class OtherProjects extends Component {
             return ( 
                 <React.Fragment>
                     <div id="projects" className="container globalFontColor">
-                        <div className="row">
-                            <div className="mt-5 mb-5">
-                            <h1>Other Projects</h1>
-                            </div>
-                        </div>
+                    <div className="row"></div>
+                                    <div className="mt-5 mb-5">
+                                    <h1>Other Projects</h1>
+                                    </div>
                     </div>
 
                     <div className="tabSelector container">
@@ -59,7 +46,7 @@ class OtherProjects extends Component {
                         <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-            <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering <span className="badge badge-primary">{engineeringProjects.length}</span></h5></Nav.Link>
+            <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
                     </Nav.Item>
                     </Nav>
 
@@ -77,11 +64,10 @@ class OtherProjects extends Component {
                 return ( 
                     <React.Fragment>
                         <div id="projects" className="container globalFontColor">
-                        <div className="row">
-                            <div className="mt-5 mb-5">
-                            <h1>Other Projects</h1>
-                            </div>
-                        </div>
+                        <div className="row"></div>
+                                    <div className="mt-5 mb-5">
+                                    <h1>Other Projects</h1>
+                                    </div>
                     </div>
 
                         <div className="tabSelector container">
@@ -109,11 +95,10 @@ class OtherProjects extends Component {
                     return ( 
                         <React.Fragment>
                             <div id="projects" className="container globalFontColor">
-                                <div className="row">
+                                <div className="row"></div>
                                     <div className="mt-5 mb-5">
                                     <h1>Other Projects</h1>
                                     </div>
-                                </div>
                             </div>
 
                             <div className="tabSelector container">
@@ -150,8 +135,6 @@ class OtherProjects extends Component {
 
 
     tabselector = (tab) => {
-        console.log(tab);
-        console.log(engineering);
         this.setState({tabselect: tab});
     }
 
