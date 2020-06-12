@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import uuid from 'uuid';
+
+const photo_key = uuid();
+const photo_title_key = uuid();
 
 var photography = [
     'photo1.jpg',
@@ -34,14 +39,21 @@ class Photography extends Component {
         } 
         return ( 
             <React.Fragment>
+                <TransitionGroup>
                 
                         <div className="contaner mt-5 ml-3 mr-3 globalFontColor">
-                            
-                            <div className="row d-flex justify-content-center">
+                        <CSSTransition
+                        in={true}
+                        appear={true}
+                        key={photo_title_key}
+                        timeout={1000}
+                        classNames="card">
+                            <div key={photo_title_key} className="row d-flex justify-content-center">
                                 <div className="col-12 mb-1">
                                 <h3>Photography and Video</h3>
                                 </div>
                             </div>
+                            </CSSTransition>
 
                             <div className="row d-flex justify-content-center">
                                 <div className="col-12 ml-4">
@@ -51,8 +63,13 @@ class Photography extends Component {
 
                             </div>
                             <div>
-
-                            <div className="container-fluid globalFontColor">
+                            <CSSTransition
+                            in={true}
+                            appear={true}
+                            key={photo_key}
+                            timeout={1000}
+                            classNames="card">
+                            <div key={photo_key} className="container-fluid globalFontColor">
                                 <div className="p-4">
                             <Carousel className="photos jumbotron">
                             {photography.map(pic => <Carousel.Item key={pic}><img height={image_height} className="photos-image" 
@@ -61,7 +78,10 @@ class Photography extends Component {
                             <p className="pictureCaption d-flex justify-content-center">Taken on Canon T5i</p>
                             </div>
                             </div>
+                            </CSSTransition>
                             </div>
+                            
+                            </TransitionGroup>
             </React.Fragment>
          );
     }

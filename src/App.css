@@ -122,3 +122,114 @@
   opacity: .9;
   background-image: none;
 }
+
+/*React Transition Group*/
+.fade-appear {
+  opacity: 0;
+  transform: translate(0%, 100%);
+  z-index: 1;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translate(0%, 100%);
+  z-index: 1;
+}
+
+.fade-appear.fade-appear-active {
+  opacity: 1;
+  transform: translate(0px,0px);
+  transition: opacity 2000ms linear, transform 2000ms;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transform: translate(0px,0px);
+  transition: opacity 2000ms linear, transform 2000ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms linear;
+}
+.fade-exit-done {
+  opacity: 0;
+}
+
+
+
+/*header transition */
+.header-appear {
+  opacity: 0;
+  transform: translate(0%,100%);
+  z-index: 1;
+  
+}
+
+.header-appear.header-appear-active {
+  opacity: 1;
+  transform: translate(0px,0px);
+  transition: opacity 3000ms ease-in, transform 2000ms;
+  
+}
+
+.header-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.header-exit {
+  opacity: 1;
+}
+
+.header-exit.header-exit-active {
+  opacity: 0;
+  transition: opacity 3000ms ease-in;
+}
+.header-exit-done {
+  opacity: 0;
+}
+
+
+
+/*Card Transition Group*/
+.card-appear {
+  opacity: 0;
+  z-index: 1;
+  transform: translate(0%,100%);
+}
+
+.card-enter {
+  opacity: 0;
+  z-index: 1;
+  transform: translate(0%,100%);
+}
+
+.card-appear.card-appear-active {
+  opacity: 1;
+  transform: translate(0px, 0px);
+  transition: opacity 1000ms linear, transform 1000ms;
+}
+
+.card-enter.card-enter-active {
+  opacity: 1;
+  transform: translate(0px, 0px);
+  transition: opacity 1000ms linear, transform 1000ms;
+}
+
+.card-exit {
+  opacity: 1;
+}
+
+.card-exit.card-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms linear;
+}
+.card-exit-done {
+  opacity: 0;
+}
+

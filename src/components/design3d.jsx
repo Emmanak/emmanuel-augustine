@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import uuid from 'uuid';
+
+const design_key = uuid();
+const design_photo_key = uuid();
 
 var design3dpics = [
     'BeautyBARF.jpg',
@@ -55,6 +60,13 @@ class Design3D extends Component {
         }
         return (
             <React.Fragment>
+                <TransitionGroup>
+                    <CSSTransition
+                    in={true}
+                    appear={true}
+                    key={design_key}
+                    timeout={1000}
+                    classNames="card">
                 <div className="contaner ml-3 mr-3 globalFontColor">
 
                     <div className="row d-flex justify-content-center">
@@ -64,7 +76,7 @@ class Design3D extends Component {
                     </div>
 
                     <div className="row d-flex justify-content-center globalFontColor">
-                        <div className="col-12 ml-4">
+                        <div className="col-12">
                             
                         <p>The following 3D projects were created on Autodesk 3D Studio Max
                         during highschool. I was limited to only rendering still
@@ -75,7 +87,14 @@ class Design3D extends Component {
                     </div>
 
                 </div>
-                <div className="container">
+                </CSSTransition>
+                <CSSTransition
+                in={true}
+                appear={true}
+                key={design_photo_key}
+                timeout={1000}
+                classNames="card">
+                <div className="container" key={design_photo_key}>
 
                <div className="p-4">
                    <div>
@@ -87,6 +106,8 @@ class Design3D extends Component {
                 </div>
                 </div> 
                 </div>
+                </CSSTransition>
+                </TransitionGroup>
             </React.Fragment> 
          );
     }

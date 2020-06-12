@@ -8,7 +8,7 @@ class AboutMe extends Component {
             <React.Fragment>
             <div id="aboutme" className="container globalFontColor">
                 <div className="container-fluid">
-                    <div className="row">
+                    <div className="row mt-4">
                     <h1>
                     About Me
                     </h1>
@@ -19,13 +19,6 @@ class AboutMe extends Component {
                 <div className="row">
                 
                     <div className="container-fluid col-md-6 col-sm-12 mt-4">
-
-                    
-
-                            <div className="container-fluid">
-
-
-
 
                                 <p>I live for technical challenges! The field or 
                                     subject of a problem doesn't matter to me. As 
@@ -39,8 +32,6 @@ class AboutMe extends Component {
                                     pursuing to become a versatile engineer capable 
                                     of adapting to any technical challenge.</p>
 
-                            </div>
-                        
                     </div>
 
                     <div className="col-md-6 col-sm-12 d-flex justify-content-center my-auto">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProjectOverview from './projectoverview';
 import Loading from './loading';
+import {CSSTransition} from 'react-transition-group';
 
 
 
@@ -39,13 +40,19 @@ class FeaturedProjects extends Component {
         var featuredProjects = this.state.projects;
         if(featuredProjects.length === 0){
             return(
+                
                 <Loading></Loading>
             );
         }
         else{
 
         
-        return ( 
+        return (
+        <CSSTransition
+            in={true}
+            appear={true}
+            timeout={2000}
+            classNames="fade">    
         <div className="container mb-5">
             <div className="jumbotron">
                 <h1>Featured Projects</h1>
@@ -75,7 +82,8 @@ class FeaturedProjects extends Component {
 
                 
             </div>
-        </div> );
+        </div>
+        </CSSTransition> );
         } 
     }
 }

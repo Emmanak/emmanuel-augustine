@@ -73,9 +73,7 @@ code {
   color:  rgb(128, 128, 128);
 }
 
-.tabSelector h5{
-  color:  rgb(134, 134, 134);
-}
+
 
 .globalFontColor {
   color: #3f3f3f;
@@ -112,4 +110,8 @@ code {
   width: 45rem;
   height: 30rem;
   
+}
+
+a.nav-link {
+  color:  rgb(134, 134, 134);
 }

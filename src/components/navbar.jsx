@@ -7,7 +7,7 @@ class NavigationBar extends Component {
     render() { 
         return ( 
             <div id="navbar" className="container">
-            <Navbar bg="light" variant="light">
+            <Navbar fixed="top" bg="light" variant="light">
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Nav className="mr-auto">
                 <Nav.Link href="/#aboutme">About Me</Nav.Link>

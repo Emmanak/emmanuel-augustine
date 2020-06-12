@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import Nav from 'react-bootstrap/Nav';
 import { db } from '../fbconfig';
 import ProjectOverview from './projectoverview';
 import Design3d from './design3d';
 import Photography from './photography';
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import uuid from 'uuid';
+
+const photography_key = uuid();
+const design_key = uuid();
 
 
 
 class OtherProjects extends Component {
     state = { 
         tabselect: "design",
-        projects: this.props.projects
+        projects: this.props.projects,
+        engineering: false,
+        software: false,
+        design: true
      }
 
      componentDidUpdate(){
@@ -38,21 +45,15 @@ class OtherProjects extends Component {
 
                     <div className="tabSelector container">
                         
-                    <Nav justify variant="tabs" defaultActiveKey="/home">
-                    <Nav.Item>
-                        <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-            <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
-                    </Nav.Item>
-                    </Nav>
+                    <button className="btn btn-outline-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("design")}>Design</button>
+                    <button className="btn btn-outline-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("software")}>Software</button>
+                    <button className="btn btn-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("engineering")}>Engineering</button>
 
                     <div id="engineering" className="mt-5 mb-5">
-                        {engineeringProjects.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><ProjectOverview key={project.id} title={project.projectName} quote={project.quote} 
-                        bodyText={project.description1} type={project.projectType} project_id={"project-"+project.id} image={project.imageLink1}></ProjectOverview></div></div>)}
+                        <TransitionGroup>
+                        {engineeringProjects.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><CSSTransition in={this.state.engineering} appear={true} key={project.id} timeout={2000} classNames="card"><ProjectOverview key={project.id} title={project.projectName} quote={project.quote} 
+                        bodyText={project.description1} type={project.projectType} project_id={"project-"+project.id} image={project.imageLink1}></ProjectOverview></CSSTransition></div></div>)}
+                    </TransitionGroup>
                     </div>
                     </div>
                     
@@ -71,20 +72,14 @@ class OtherProjects extends Component {
                     </div>
 
                         <div className="tabSelector container">
-                        <Nav justify variant="tabs" defaultActiveKey="/home">
-                        <Nav.Item>
-                            <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
-                        </Nav.Item>
-                        </Nav>
+                        <button className="btn btn-outline-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("design")}>Design</button>
+                        <button className="btn btn-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("software")}>Software</button>
+                        <button className="btn btn-outline-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("engineering")}>Engineering</button>
                         <div id="software" className="mt-5 mb-5">
-                        {softwareProjects.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><ProjectOverview key={project.id} title={project.projectName} quote={project.quote} 
-                        bodyText={project.description1} type={project.projectType} project_id={"project-"+project.id} image={project.imageLink1}></ProjectOverview></div></div>)}
+                        <TransitionGroup>
+                        {softwareProjects.map((project) => <div className="row"><div className="col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center mb-4"><CSSTransition in={this.state.software} appear={true} key={project.id} timeout={2000} classNames="card"><ProjectOverview key={project.id} title={project.projectName} quote={project.quote} 
+                        bodyText={project.description1} type={project.projectType} project_id={"project-"+project.id} image={project.imageLink1}></ProjectOverview></CSSTransition></div></div>)}
+                        </TransitionGroup>
                         </div>
                         </div>
                     </React.Fragment>
@@ -94,29 +89,29 @@ class OtherProjects extends Component {
                 else if(this.state.tabselect === "design"){
                     return ( 
                         <React.Fragment>
+                            
                             <div id="projects" className="container globalFontColor">
+                            
                                 <div className="row"></div>
                                     <div className="mt-5 mb-5">
+
                                     <h1>Other Projects</h1>
                                     </div>
                             </div>
 
                             <div className="tabSelector container">
-                            <Nav justify variant="tabs" defaultActiveKey="/home">
-                            <Nav.Item>
-                                <Nav.Link onSelect={()=>this.tabselector("design")} eventKey="link-1"><h5>Design</h5></Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link onSelect={()=>this.tabselector("software")} eventKey="link-2"><h5>Software</h5></Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link onSelect={()=>this.tabselector("engineering")} eventKey="link-3"><h5>Engineering</h5></Nav.Link>
-                            </Nav.Item>
-                            </Nav>
+                            <button className="btn btn-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("design")}>Design</button>
+                            <button className="btn btn-outline-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("software")}>Software</button>
+                            <button className="btn btn-outline-secondary col-lg-4 col-md-4 col-sm-12 col-xs-12" onClick={()=>this.tabselector("engineering")}>Engineering</button>
                             <div id="design" className="mt-5 mb-4">
-                                <Design3d></Design3d>
-                                <Photography>
+                                
+                                
+                                <Design3d key={design_key}></Design3d>
+                                
+                                
+                                <Photography key={photography_key}>
                                 </Photography>
+                               
                             </div>
                             </div>
                         </React.Fragment>
@@ -135,6 +130,16 @@ class OtherProjects extends Component {
 
 
     tabselector = (tab) => {
+
+        if(tab === "engineering"){
+            this.setState({engineering: true});
+        }
+        else if(tab === "software"){
+            this.setState({software: true});
+        }
+        else if(tab === "design"){
+            this.setState({design: true});
+        }
         this.setState({tabselect: tab});
     }
 

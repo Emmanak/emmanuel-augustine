@@ -6,10 +6,12 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './components/navbar';
 import ProjectSetup from './components/projectdetails';
 
+
 function App() {
   return (
     <React.Fragment>
       <NavigationBar></NavigationBar>
+
       
       
       <Router>
