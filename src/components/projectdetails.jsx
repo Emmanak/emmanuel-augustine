@@ -55,7 +55,7 @@ import {CSSTransition} from 'react-transition-group';
                 in={true}
                 appear={true}
                 timeout={1000}
-                classNames="card">
+                classNames="details">
                 <div className="container">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <div>

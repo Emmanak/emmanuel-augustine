@@ -49,6 +49,10 @@
 	 font-family: Montserrat;
 }
 
+.project-name-link {
+  color: #3f3f3f;
+}
+
 .center-screen {
   position: relative; 
   width: 100%;
@@ -200,13 +204,13 @@
 .card-appear {
   opacity: 0;
   z-index: 1;
-  transform: translate(0%,100%);
+  transform: translate(0%,5%);
 }
 
 .card-enter {
   opacity: 0;
   z-index: 1;
-  transform: translate(0%,100%);
+  transform: translate(0%,5%);
 }
 
 .card-appear.card-appear-active {
@@ -230,6 +234,43 @@
   transition: opacity 1000ms linear;
 }
 .card-exit-done {
+  opacity: 0;
+}
+
+/*Details Transition Group*/
+.details-appear {
+  opacity: 0;
+  z-index: 1;
+  transform: translate(0%,100%);
+}
+
+.details-enter {
+  opacity: 0;
+  z-index: 1;
+  transform: translate(0%,100%);
+}
+
+.details-appear.details-appear-active {
+  opacity: 1;
+  transform: translate(0px, 0px);
+  transition: opacity 1000ms linear, transform 1000ms;
+}
+
+.details-enter.details-enter-active {
+  opacity: 1;
+  transform: translate(0px, 0px);
+  transition: opacity 1000ms linear, transform 1000ms;
+}
+
+.details-exit {
+  opacity: 1;
+}
+
+.details-exit.details-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms linear;
+}
+.details-exit-done {
   opacity: 0;
 }
 

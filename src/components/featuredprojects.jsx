@@ -52,7 +52,7 @@ class FeaturedProjects extends Component {
             in={true}
             appear={true}
             timeout={2000}
-            classNames="fade">    
+            classNames="card">    
         <div className="container mb-5">
             <div className="jumbotron">
                 <h1>Featured Projects</h1>

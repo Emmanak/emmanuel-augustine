@@ -30,10 +30,12 @@ class ProjectOverview extends Component {
         } 
         return ( 
             <React.Fragment>
+                
                 <Card className="globalFontColor" style={{ width: '55rem' }}>
-                    <Card.Img variant="top" src={this.props.image} />
+                <a href={"/project/"+this.props.type+"/"+this.props.project_id}>
+                    <Card.Img variant="top" src={this.props.image} href={"/project/"+this.props.type+"/"+this.props.project_id} /></a>
                     <Card.Header>
-                        <Card.Title><h2>{this.props.title}</h2></Card.Title>
+                        <Card.Title><a className="project-name-link" href={"/project/"+this.props.type+"/"+this.props.project_id}><h2>{this.props.title}</h2></a></Card.Title>
                         <Card.Text>
                                 <b>{this.props.quote}</b>
                         </Card.Text>
@@ -41,6 +43,7 @@ class ProjectOverview extends Component {
                         </Button>
                     </Card.Header>
                 </Card>
+                
             </React.Fragment>
             
          );
