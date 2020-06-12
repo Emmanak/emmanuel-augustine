@@ -166,7 +166,7 @@
 
 
 
-/*header transition */
+/*Header transition */
 .header-appear {
   opacity: 0;
   transform: translate(0%,100%);
